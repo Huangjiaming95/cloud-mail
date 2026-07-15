@@ -2,18 +2,28 @@ name = "cloud-mail"
 main = "src/index.js"
 compatibility_date = "2025-06-04"
 keep_vars = true
+workers_dev = false
+preview_urls = false
 
 [observability]
 enabled = true
 
-#[[d1_databases]]
-#binding = "db"			#d1数据库绑定名默认不可修改
-#database_name = ""		#d1数据库名字
-#database_id = ""		#d1数据库id
+[[routes]]
+pattern = "mail.hjm32.xyz"
+custom_domain = true
 
-#[[kv_namespaces]]
-#binding = "kv"			#kv绑定名默认不可修改
-#id = ""					#kv数据库id
+[[routes]]
+pattern = "mail.jia32.eu.cc"
+custom_domain = true
+
+[[d1_databases]]
+binding = "db"
+database_name = "cloud-mail"
+database_id = "3fc237f6-4a55-47b8-bd4e-ca655ca4c4b7"
+
+[[kv_namespaces]]
+binding = "kv"
+id = "c49b7363ac144b15935f17aeed5ed44a"
 
 #[[r2_buckets]]
 #binding = "r2"			#r2对象存储绑定名默认不可修改
