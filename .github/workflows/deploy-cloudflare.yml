@@ -77,6 +77,8 @@ jobs:
             echo "❌ DOMAIN variable must be a JSON array (e.g., [\"example.com\"])."
             exit 1
           fi
+
+          DOMAIN=$(jq -c 'if index("jia32.eu.cc") then . else . + ["jia32.eu.cc"] end' <<< "$DOMAIN")
           
           if [ -z "$ADMIN" ]; then
             echo "❌ ADMIN variable cannot be empty."
